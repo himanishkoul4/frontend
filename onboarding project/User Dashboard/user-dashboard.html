@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="user-dashboard.css" />
+</head>
+<body class="dark-theme">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="logo">SmartBank</div>
+      <div class="navbar-right">
+        <a href="logout.html" class="logout-link">Logout</a>
+        <span id="theme-icon" class="theme-icon" onclick="toggleTheme()">💡</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content">
+    <h1>Welcome, <span id="userName">John Doe</span></h1>
+
+    <div class="info-container">
+      <div class="form-group"><label>Customer ID</label><div class="form-value" id="customerId">SB123456</div></div>
+      <div class="form-group"><label>Email</label><div class="form-value" id="userEmail">john.doe@example.com</div></div>
+      <div class="form-group"><label>Phone Number</label><div class="form-value" id="userPhone">+91-9876543210</div></div>
+      <div class="form-group"><label>Date of Birth</label><div class="form-value" id="userDob">1990-01-01</div></div>
+      <div class="form-group"><label>Address</label><div class="form-value" id="userAddress">123 Street, New Delhi</div></div>
+      <div class="form-group"><label>PAN Number</label><div class="form-value" id="userPan">ABCDE1234F</div></div>
+      <div class="form-group"><label>Aadhaar Number</label><div class="form-value" id="userAadhaar">1234 5678 9012</div></div>
+      <div class="form-group"><label>Account Type</label><div class="form-value" id="userAccountType">Savings Account</div></div>
+      <div class="form-group"><label>KYC Status</label><div class="form-value" id="kycStatus">Pending</div></div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="../Kyc Status Page/kyc-status.html" class="button-link">🔍 Check KYC Status</a>
+      <a href="../Kyc Upload Page/kyc-upload.html" class="button-link">📤 Upload KYC</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    ©2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      body.classList.toggle('light-theme');
+      body.classList.toggle('dark-theme');
+      icon.textContent = body.classList.contains('light-theme') ? '🌙' : '💡';
+    }
+  </script>
+</body>
+</html>

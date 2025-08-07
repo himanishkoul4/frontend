@@ -1,0 +1,228 @@
+/* Theme Colors */
+:root.dark {
+  --bg-color: #0A192F;
+  --text-color: #F8F8F8;
+  --form-bg: rgb(17, 34, 64);
+  --navbar-bg: #112240;
+  --footer-bg: #112240;
+  --button-bg: #64FFDA;
+  --button-text: #0A192F;
+  --input-border: #64FFDA;
+  --logo-color: #64FFDA;
+  --label-color: #F8F8F8;
+  --secondary-text: #F8F8F8;
+}
+
+:root.light {
+  --bg-color: #ffffff;
+  --text-color: #ffffff;
+  --form-bg: #f3f3f3;
+  --navbar-bg: #00796B;
+  --footer-bg: #00796B;
+  --button-bg: #00796B;
+  --button-text: #ffffff;
+  --input-border: #00796B;
+  --logo-color: #ffffff;
+  --label-color: #000000;
+  --secondary-text: #000000;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--logo-color);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  color: var(--text-color);
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+/* Login Section */
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.login-box {
+  background-color: var(--form-bg);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h1 {
+  text-align: center;
+  color: var(--button-bg);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--label-color);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #A8B2D1;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 12px;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  opacity: 0.9;
+}
+
+/* OTP Field */
+#otpField input {
+  background-color: var(--bg-color);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#otpField input::placeholder {
+  color: #A8B2D1;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+/* Forgot Password */
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--secondary-text);
+}
+
+.forgot-password a {
+  color: var(--button-bg);
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 25px;
+  }
+
+  .login-box h1 {
+    font-size: 1.5rem;
+  }
+}

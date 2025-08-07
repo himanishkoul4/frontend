@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Success - SmartBank</title>
+  <link rel="stylesheet" href="registration-success.css" />
+</head>
+<body class="light-theme">
+
+  <header class="navbar">
+    <div class="navbar-left">
+      <span class="logo">SmartBank</span>
+    </div>
+    <div class="navbar-right">
+      <a href="../Home Page/home-page.html">Home</a>
+
+      <span id="theme-icon" class="theme-toggle" onclick="toggleTheme()">🌙</span>
+    </div>
+  </header>
+
+  <main class="center-wrapper">
+    <div class="success-container">
+      <h2>🎉 Registration Successful!</h2>
+      <p class="message">Welcome to SmartBank! Your account has been successfully created.</p>
+
+      <div class="customer-info">
+        <h3>Customer Details</h3>
+        <ul>
+          <li><strong>Customer ID:</strong> SB123456</li>
+          <li><strong>Full Name:</strong> John Doe</li>
+          <li><strong>Email:</strong> john.doe@example.com</li>
+          <li><strong>Phone:</strong> +91-9876543210</li>
+          <li><strong>PAN:</strong> ABCDE1234F</li>
+          <li><strong>Aadhaar:</strong> 1234-5678-9012</li>
+          <li><strong>Account Type:</strong> Savings</li>
+        </ul>
+      </div>
+
+      <div class="button-group">
+        <a href="../Login Page/login.html" class="btn">Login</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 SmartBank. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById("theme-icon");
+
+      body.classList.toggle("dark-theme");
+      body.classList.toggle("light-theme");
+
+      icon.textContent = body.classList.contains("dark-theme") ? "💡" : "🌙";
+    }
+  </script>
+</body>
+</html>

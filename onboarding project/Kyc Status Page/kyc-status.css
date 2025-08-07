@@ -1,0 +1,178 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0A192F;
+  color: #F8F8F8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #112240;
+  color: #F8F8F8;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #64FFDA;
+}
+
+.nav-links a {
+  color: #F8F8F8;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover{
+  text-decoration: underline;
+}
+
+/* KYC Status Section */
+.status-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.status-container {
+  background-color: #172A45;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.status-container h2 {
+  color: #64FFDA;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.status-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.status-text.pending {
+  color: #FFA500; /* Orange */
+}
+
+.status-text.verified {
+  color: #00FF99; /* Greenish */
+}
+
+.status-text.rejected {
+  color: #FF4C4C; /* Red */
+}
+
+.info-box {
+  background-color: #112240;
+  padding: 20px;
+  border-radius: 10px;
+  color: #A8B2D1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #112240;
+  color: #F8F8F8;
+  font-size: 0.9rem;
+  margin-top: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .status-container {
+    padding: 25px;
+  }
+
+  .status-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .status-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Theme Toggle Icon */
+.theme-icon {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: #f2f2f2;
+  color: #0A192F;
+}
+
+body.light-theme .navbar {
+  background-color: #00796B;
+  color: #ffffff;
+}
+
+body.light-theme .logo {
+  color: #ffffff;
+}
+
+body.light-theme .nav-links a {
+  color: #ffffff;
+}
+
+body.light-theme .theme-icon {
+  color: #ffffff;
+}
+
+body.light-theme .status-container {
+  background-color: #ffffff;
+  color: #0A192F;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .status-container h2 {
+  color: #00796B;
+}
+
+body.light-theme .info-box {
+  background-color: #f2f2f2;
+  color: #333333;
+}
+
+body.light-theme .footer {
+  background-color: #00796B;
+  color: #ffffff;
+}
+

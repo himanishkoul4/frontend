@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartBank - Home</title>
+  <link rel="stylesheet" href="home-page.css" />
+</head>
+<body class="dark-theme">
+  <header class="navbar">
+    <div class="logo">SmartBank</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="../Login Page/login.html">Login</a>
+      <span id="theme-icon" class="theme-icon" onclick="toggleTheme()">💡</span>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1><span class="highlight">Where Money</span><br>Meets Trust.</h1>
+      <p>
+        Open your digital bank account in minutes and enjoy fast, secure, and seamless transactions anytime, anywhere.
+      </p>
+      <p class="secondary-text">
+        From personal savings to corporate banking, our platform is designed to serve every financial need with unmatched convenience. Experience advanced fraud protection, instant support, and a smart banking dashboard all in one place.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn">Know More</button>
+        <button class="btn secondary">Open Account</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/Smart bank image.png" alt="Banking Image" class="hero-img" />
+    </div>
+  </section>
+
+  <!-- ✅ About Section -->
+  <section id="about" class="about-section">
+    <h2>About SmartBank</h2>
+    <p>
+      At SmartBank, we’re revolutionizing the way you manage money. With a blend of technology and trust, we deliver modern financial services tailored to your lifestyle. Our mission is to empower individuals and businesses through digital innovation, secure transactions, and personalized support.
+    </p>
+    <p>
+      Whether you're saving for the future, running a business, or just handling day-to-day finances, SmartBank is your smart companion in every financial journey.
+    </p>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">💰 <h3>Savings Account</h3><p>Start saving with 0 fees and high interest rates.</p></div>
+    <div class="feature-card">🏢 <h3>Business Loans</h3><p>Quick loan approval to grow your business faster.</p></div>
+    <div class="feature-card">💳 <h3>Debit Cards</h3><p>Shop, swipe, and go with our secure debit cards.</p></div>
+    <div class="feature-card">🧾 <h3>Credit Cards</h3><p>Earn rewards and manage expenses smartly.</p></div>
+  </section>
+
+  <!-- ✅ Renamed for #services scroll -->
+  <section id="services" class="extra-content">
+    <h2>Why Choose SmartBank?</h2>
+    <div class="extra-grid">
+      <div class="card">
+        <h4>📱 Mobile Banking</h4>
+        <p>24/7 banking access at your fingertips with our secure mobile app.</p>
+      </div>
+      <div class="card">
+        <h4>🛡️ Fraud Protection</h4>
+        <p>Advanced security measures ensure your data and money are safe.</p>
+      </div>
+      <div class="card">
+        <h4>🤝 Human Support</h4>
+        <p>Talk to real people, not bots. We're here for you every step.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 SmartBank. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const themeIcon = document.getElementById("theme-icon");
+
+      body.classList.toggle("light-theme");
+      body.classList.toggle("dark-theme");
+
+      if (body.classList.contains("light-theme")) {
+        themeIcon.textContent = "🌙";
+      } else {
+        themeIcon.textContent = "💡";
+      }
+    }
+  </script>
+</body>
+</html>

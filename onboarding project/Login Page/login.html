@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - SmartBank</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">SmartBank</div>
+    <div class="nav-right">
+      <a href="../Home Page/home-page.html" class="home-link">Home</a>
+      <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">🌙</div>
+    </div>
+  </div>
+
+  <section class="login-container">
+    <div class="login-box">
+      <h1>Login</h1>
+      <form id="loginForm" action="/login" method="POST" onsubmit="return showOtpBox(event)">
+        <div class="form-group">
+          <label for="email">Enter Email :</label>
+          <input type="text" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Enter Password :</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        
+        <button type="submit" class="btn-login">Login</button>
+
+        <!-- OTP Field -->
+        <div class="form-group" id="otpField" style="display: none; margin-top: 20px;">
+          <label for="otp">Enter OTP</label>
+          <input type="text" id="otp" name="otp" placeholder="6-digit OTP" />
+        </div>
+
+        <p class="forgot-password">New user? <a href="../Customer Registration/registration.html">Register</a></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <script>
+    function showOtpBox(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!isValidEmail) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+      document.getElementById('otpField').style.display = 'block';
+      return false;
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeToggle = document.querySelector('.theme-toggle');
+      const isDark = html.classList.contains('dark');
+
+      html.classList.toggle('dark');
+      html.classList.toggle('light');
+
+      themeToggle.textContent = isDark ? '🌙' : '💡';
+    }
+  </script>
+</body>
+</html>
