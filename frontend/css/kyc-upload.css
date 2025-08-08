@@ -1,0 +1,240 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0A192F;
+  color: #F8F8F8;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #112240;
+  color: #F8F8F8;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #64FFDA;
+}
+
+.nav-links a {
+  color: #F8F8F8;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* KYC Upload Form */
+.kyc-container {
+  max-width: 600px;
+  margin: 100px auto 60px; /* Top margin to push content below navbar */
+  background-color: #112240;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+
+.kyc-container h2 {
+  margin-bottom: 30px;
+  color: #64FFDA;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #A8B2D1;
+}
+
+.form-group input[type="file"] {
+  background-color: #172A45;
+  border: 1.5px solid #64FFDA;
+  padding: 14px;
+  width: 100%;
+  color: #F8F8F8;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]::file-selector-button {
+  background-color: #ffffff;
+  color: #0A192F;
+  border: none;
+  padding: 10px 16px;
+  margin-right: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background-color: #64FFDA;
+  transform: scale(1.03);
+}
+
+
+.btn {
+  background-color: #64FFDA;
+  color: #0A192F;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #52e0c4;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #112240;
+  color: #F8F8F8;
+  font-size: 0.9rem;
+  margin-top: auto;
+  position: relative;
+  top:40px
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .kyc-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+}
+
+/* Theme Toggle Icon */
+.theme-icon {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon:hover {
+  transform: rotate(15deg);
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: #f2f2f2;
+  color: #0A192F;
+}
+
+body.light-theme .navbar {
+  background-color: #00796B;
+  color: #0A192F;
+}
+
+body.light-theme .logo {
+  color: #ffffff;
+}
+
+body.light-theme .nav-links a {
+  color: #ffffff;
+}
+
+body.light-theme .theme-icon {
+  color: #00796B;
+}
+
+body.light-theme .kyc-container {
+  background-color: #ffffff;
+  color: #0A192F;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+body.light-theme .kyc-container h2 {
+  color: #00796B;
+}
+
+body.light-theme .form-group label {
+  color: #0A192F;
+}
+
+body.light-theme .form-group input[type="file"] {
+  background-color: #ffffff;
+  color: #0A192F;
+  border: 1px solid #00796B;
+}
+
+body.light-theme .btn {
+  background-color: #00796B;
+  color: #ffffff;
+}
+
+body.light-theme .btn:hover {
+  background-color: #005e52;
+}
+
+body.light-theme .footer {
+  background-color: #00796B;
+  color: #ffffff;
+}
+
+/* Dark Theme (existing styles, ensure class is present) */
+body.dark-theme {
+  background-color: #0A192F;
+  color: #F8F8F8;
+}
+
+/* ✅ Logout button in nav */
+.logout-btn {
+  color: #F8F8F8;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+body.light-theme .form-group input[type="file"]::file-selector-button:hover,
+body.light-theme .form-group input[type="file"]::file-selector-button:active {
+  background-color: #00796B;
+  color: #ffffff;
+}

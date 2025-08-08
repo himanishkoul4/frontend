@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>After KYC Submit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/after-kyc-submit.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">SmartBank</div>
+    <div class="nav-right">
+      <a href="user-dashboard.html">Dashboard</a>
+      <a href="login.html">Logout</a>
+      <span class="theme-toggle" id="themeToggleIcon">🌙</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="profile-header">
+      <h2>Documents Submitted</h2>
+      <p>Your KYC documents have been successfully submitted for review.</p>
+    </div>
+
+    <div class="card-images">
+      <img src="https://www.pancardapp.com/blog/wp-content/uploads/2019/04/sample-pan-card.jpg" alt="PAN Card" />
+      <img src="https://imgs.search.brave.com/4Gx23yV0ppHekIfL3HTog52qaXDkW10Z1I489mv0MSc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzI2LzEx/LzBmLzI2MTEwZjBj/OGVhOTJkMjM2MGI1/YzNiMDVjZDc3Yjk3/LmpwZw" alt="Aadhaar Front" />
+      <img src="https://imgs.search.brave.com/xVZ3TS0CRnCyTuuh2EnfdHqKsmGingtwurTxnftVih8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzMwLzdi/LzYzLzMwN2I2Mzdh/NzdiNmJmMDJkZDhi/ODM3NjhjZmMyOTk2/LmpwZw" alt="Aadhaar Back" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const body = document.body;
+    const themeIcon = document.getElementById("themeToggleIcon");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        body.classList.add("light-theme");
+        themeIcon.textContent = "🌙";
+      } else {
+        body.classList.remove("light-theme");
+        themeIcon.textContent = "💡";
+      }
+      localStorage.setItem("theme", theme);
+    }
+
+    themeIcon.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-theme");
+      applyTheme(isLight ? "dark" : "light");
+    });
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+  </script>
+</body>
+</html>
