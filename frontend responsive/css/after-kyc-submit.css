@@ -1,0 +1,190 @@
+:root {
+    --nav-bg: #0A192F;
+    --text-color: #ffffff;
+    --bg-color: #0A192F;
+    --btn-bg: #64FFDA;
+    --btn-text: #0A192F;
+}
+
+body.light-theme {
+    --nav-bg: #f7f7f7;
+    --text-color: #111;
+    --bg-color: #ffffff;
+    --btn-bg: #0A192F;
+    --btn-text: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.4s, color 0.4s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    font-size: 1.4rem;
+    user-select: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+.theme-toggle:hover {
+    transform: rotate(15deg);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: #112240;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.navbar .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.navbar .nav-left .brand {
+    color: #64FFDA;
+    font-size: 1.6rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.navbar .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    white-space: nowrap;
+}
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+body.light-theme .navbar {
+    background-color: #00796B;
+}
+body.light-theme .navbar .nav-left .brand {
+    color: white;
+}
+
+/* Main Content */
+.content {
+    padding: 20px;
+    margin-top: 70px; /* Prevent overlap with fixed navbar */
+    text-align: center;
+    flex: 1;
+}
+
+.profile-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Image Gallery */
+.card-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-images img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #888;
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.card-images img:hover {
+    transform: scale(1.03);
+    border-color: var(--btn-bg);
+}
+
+/* Footer */
+.footer {
+    background-color: #112240;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+body.light-theme .footer {
+    background-color: #00796B;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+    .navbar .nav-left {
+        gap: 10px;
+    }
+    .navbar .nav-right {
+        gap: 10px;
+    }
+    .profile-header h2 {
+        font-size: 1.5rem;
+    }
+    .card-images img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        font-size: 0.9rem;
+    }
+    .profile-header h2 {
+        font-size: 1.3rem;
+    }
+    .profile-header p {
+        font-size: 0.9rem;
+    }
+    .navbar .nav-left .brand {
+        font-size: 1.3rem;
+    }
+}

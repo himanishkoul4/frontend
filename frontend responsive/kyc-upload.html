@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KYC Upload</title>
+  <link rel="stylesheet" href="./css/kyc-upload.css"/>
+</head>
+<body class="dark-theme">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">SmartBank</div>
+    <div class="nav-links">
+      <a href="user-dashboard.html" class="logout-btn">Dashboard</a>
+      <a href="login.html" class="logout-btn">Logout</a>
+      <span id="theme-icon" class="theme-icon" onclick="toggleTheme()">💡</span>
+    </div>
+  </div>
+
+  <!-- KYC Upload Form -->
+  <div class="kyc-container">
+    <h2>Upload KYC Documents</h2>
+    <form id="kycForm" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="pan">PAN Card (PDF or Image)</label>
+        <input type="file" id="pan" name="pan" accept=".pdf,image/*" required />
+      </div>
+
+      <div class="form-group">
+        <label for="aadhaar-front">Aadhaar Card (Front Side - PDF or Image)</label>
+        <input type="file" id="aadhaar-front" name="aadhaarFront" accept=".pdf,image/*" required />
+      </div>
+
+      <div class="form-group">
+        <label for="aadhaar-back">Aadhaar Card (Back Side - PDF or Image)</label>
+        <input type="file" id="aadhaar-back" name="aadhaarBack" accept=".pdf,image/*" required />
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Photograph (Image)</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required />
+      </div>
+
+      <button type="submit" class="btn" onclick="window.location.href='after-kyc-submit.html'">
+        Submit KYC
+      </button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      body.classList.toggle('light-theme');
+      body.classList.toggle('dark-theme');
+      icon.textContent = body.classList.contains('light-theme') ? '🌙' : '💡';
+    }
+  </script>
+</body>
+</html>
