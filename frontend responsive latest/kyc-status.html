@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KYC Status - SmartBank</title>
+  <link rel="stylesheet" href="./css/kyc-status.css" />
+</head>
+<body class="dark-theme">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">SmartBank</div>
+    <div class="nav-links">
+      <a href="user-dashboard.html">Dashboard</a>
+      <a href="login.html">Logout</a>
+      <span id="theme-icon" class="theme-icon" onclick="toggleTheme()">💡</span>
+    </div>
+  </div>
+
+  <!-- Status Section -->
+  <section class="status-section">
+    <div class="status-container">
+      <h2>KYC Status</h2>
+      <p class="status-text pending">Status: Pending</p>
+      <div class="info-box">
+        <p>Your KYC verification is currently pending. Please wait while our team verifies your documents.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      body.classList.toggle('light-theme');
+      body.classList.toggle('dark-theme');
+      icon.textContent = body.classList.contains('light-theme') ? '🌙' : '💡';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Approve Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/user-kyc-details.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">SmartBank Admin</div>
+    <div class="nav-right">
+      <a href="kyc-review.html">Admin-Dashboard</a>
+      <a href="login.html">Logout</a>
+      <span class="theme-toggle" id="themeToggleIcon">🌙</span>
+    </div>
+  </nav>
+
+  <!-- Main Content (No Box) -->
+  <div class="content">
+    <div class="profile-header">
+      <img src="https://plus.unsplash.com/premium_photo-1691784781482-9af9bce05096?q=80&w=1170" class="profile-img" />
+      <h2 id="fullname">John Doe</h2>
+      <p><strong>Customer ID:</strong> <span id="customerId">SB123456</span></p>
+      <p><strong>Email:</strong> <span id="email">john@example.com</span></p>
+      <p><strong>Phone:</strong> <span id="phone">1234567890</span></p>
+      <p><strong>DOB:</strong> <span id="dob">1990-01-01</span></p>
+      <p><strong>Address:</strong> <span id="address">123 Street, City</span></p>
+      <p><strong>PAN:</strong> <span id="pan">ABCDE1234F</span></p>
+      <p><strong>Aadhaar:</strong> <span id="aadhar">1234 5678 9012</span></p>
+    </div>
+
+    <div class="card-images">
+      <img src="https://www.pancardapp.com/blog/wp-content/uploads/2019/04/sample-pan-card.jpg" alt="PAN Card" />
+      <img src="https://imgs.search.brave.com/4Gx23yV0ppHekIfL3HTog52qaXDkW10Z1I489mv0MSc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzI2LzEx/LzBmLzI2MTEwZjBj/OGVhOTJkMjM2MGI1/YzNiMDVjZDc3Yjk3/LmpwZw" alt="Aadhaar Front" />
+      <img src="https://imgs.search.brave.com/xVZ3TS0CRnCyTuuh2EnfdHqKsmGingtwurTxnftVih8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzMwLzdi/LzYzLzMwN2I2Mzdh/NzdiNmJmMDJkZDhi/ODM3NjhjZmMyOTk2/LmpwZw" alt="Aadhaar Back" />
+    </div>
+
+    <div class="chat-box">
+      <textarea id="chatMessage" placeholder="Write message to customer..."></textarea>
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div class="action-buttons">
+      <button class="approve" onclick="approveKyc()">✅ Approve</button>
+
+      <select id="rejectReason">
+        <option value="" disabled selected>Select rejection reason</option>
+        <option value="Name">Name</option>
+        <option value="PAN">PAN</option>
+        <option value="Aadhaar">Aadhaar</option>
+        <option value="DOB">Date of Birth</option>
+        <option value="Address">Address</option>
+        <option value="Photo">Photo not match</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <button class="reject" onclick="rejectKyc()">❌ Reject</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="confirmationModal" class="modal hidden">
+    <div class="modal-content">
+      <p id="confirmationMessage"></p>
+      <div class="modal-actions">
+        <button id="confirmYesBtn">Yes</button>
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- JS Code remains same -->
+  <script>
+    const body = document.body;
+    const themeIcon = document.getElementById("themeToggleIcon");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        body.classList.add("light-theme");
+        themeIcon.textContent = "🌙";
+      } else {
+        body.classList.remove("light-theme");
+        themeIcon.textContent = "💡";
+      }
+      localStorage.setItem("theme", theme);
+    }
+
+    themeIcon.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-theme");
+      applyTheme(isLight ? "dark" : "light");
+    });
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+
+    function sendMessage() {
+      const msg = document.getElementById("chatMessage").value.trim();
+      const email = document.getElementById("email").textContent.trim();
+      if (!msg) return alert("Please write a message before sending.");
+      if (!email.includes("@")) return alert("Invalid email address.");
+      alert(`📩 Message sent to ${email}:\n\n"${msg}"`);
+      document.getElementById("chatMessage").value = "";
+    }
+
+    let pendingAction = null;
+
+    function approveKyc() {
+      const customerId = document.getElementById("customerId").textContent;
+      pendingAction = () => {
+        alert(`✅ KYC Approved for ${customerId}`);
+        closeModal();
+      };
+      showModal("Are you sure you want to approve?");
+    }
+
+    function rejectKyc() {
+      const reason = document.getElementById("rejectReason").value;
+      const customerId = document.getElementById("customerId").textContent;
+      if (!reason) return alert("❗ Please select a rejection reason.");
+      pendingAction = () => {
+        alert(`❌ KYC Rejected for ${customerId}\nReason: ${reason}`);
+        closeModal();
+      };
+      showModal("Are you sure you want to reject?");
+    }
+
+    function showModal(message) {
+      document.getElementById("confirmationMessage").textContent = message;
+      document.getElementById("confirmationModal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("confirmationModal").classList.add("hidden");
+      pendingAction = null;
+    }
+
+    document.getElementById("confirmYesBtn").addEventListener("click", function () {
+      if (typeof pendingAction === "function") {
+        pendingAction();
+      }
+    });
+  </script>
+</body>
+</html>

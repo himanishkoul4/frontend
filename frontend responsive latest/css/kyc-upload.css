@@ -1,0 +1,254 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0A192F;
+  color: #F8F8F8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #112240;
+  color: #F8F8F8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  flex-wrap: nowrap;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #64FFDA;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #F8F8F8;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.theme-icon {
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon:hover {
+  transform: rotate(15deg);
+}
+
+/* KYC Form Container */
+.kyc-container {
+  max-width: 800px; /* Max size on large screens */
+  width: 90%; /* Shrinks automatically as screen width decreases */
+  margin: 100px auto 60px;
+  background-color: #112240;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transition: width 0.3s ease; /* Smooth resizing */
+}
+
+.kyc-container h2 {
+  margin-bottom: 30px;
+  color: #64FFDA;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #A8B2D1;
+}
+
+.form-group input[type="file"] {
+  background-color: #172A45;
+  border: 1.5px solid #64FFDA;
+  padding: 14px;
+  width: 100%;
+  color: #F8F8F8;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]::file-selector-button {
+  background-color: #ffffff;
+  color: #0A192F;
+  border: none;
+  padding: 10px 16px;
+  margin-right: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background-color: #64FFDA;
+  transform: scale(1.03);
+}
+
+/* Submit Button */
+.btn {
+  background-color: #64FFDA;
+  color: #0A192F;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #52e0c4;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #112240;
+  color: #F8F8F8;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: #f2f2f2;
+  color: #0A192F;
+}
+
+body.light-theme .navbar {
+  background-color: #00796B;
+}
+
+body.light-theme .logo {
+  color: #ffffff;
+}
+
+body.light-theme .nav-links a {
+  color: #ffffff;
+}
+
+body.light-theme .theme-icon {
+  color: #ffffff;
+}
+
+body.light-theme .kyc-container {
+  background-color: #ffffff;
+  color: #0A192F;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+body.light-theme .kyc-container h2 {
+  color: #00796B;
+}
+
+body.light-theme .form-group label {
+  color: #0A192F;
+}
+
+body.light-theme .form-group input[type="file"] {
+  background-color: #ffffff;
+  color: #0A192F;
+  border: 1px solid #00796B;
+}
+
+body.light-theme .btn {
+  background-color: #00796B;
+  color: #ffffff;
+}
+
+body.light-theme .btn:hover {
+  background-color: #005e52;
+}
+
+body.light-theme .footer {
+  background-color: #00796B;
+}
+
+body.light-theme .form-group input[type="file"]::file-selector-button:hover {
+  background-color: #00796B;
+  color: #ffffff;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .kyc-container {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  .theme-icon {
+    font-size: 1.1rem;
+  }
+  .kyc-container {
+    padding: 25px 15px;
+  }
+  .kyc-container h2 {
+    font-size: 1.4rem;
+  }
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  .form-group input[type="file"] {
+    font-size: 0.85rem;
+  }
+}

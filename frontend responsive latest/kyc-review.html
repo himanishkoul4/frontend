@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KYC Review - SmartBank Admin</title>
+  <link rel="stylesheet" href="./css/kyc-review.css" />
+</head>
+<body class="dark-theme">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">SmartBank Admin</div>
+    <div class="nav-links">
+      <a href="login.html">Logout</a>
+      <span id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">💡</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="review-container">
+    <h1>📝 KYC Submissions Pending Review</h1>
+
+    <div class="table-wrapper">
+      <table class="kyc-table">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Submitted On</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CUST001</td>
+            <td>Riya Sharma</td>
+            <td>riya@example.com</td>
+            <td>+91-9876543210</td>
+            <td>2025-08-01</td>
+            <td><span class="status-badge pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td>CUST002</td>
+            <td>Arjun Verma</td>
+            <td>arjun@example.com</td>
+            <td>+91-9123456780</td>
+            <td>2025-08-02</td>
+            <td><span class="status-badge pending">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 SmartBank. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById("theme-toggle");
+      body.classList.toggle("light-theme");
+      body.classList.toggle("dark-theme");
+      icon.textContent = body.classList.contains("light-theme") ? "🌙" : "💡";
+    }
+  </script>
+</body>
+</html>
